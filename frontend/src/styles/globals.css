@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 220 20% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 14%;
+    --primary: 215 45% 28%;
+    --primary-foreground: 40 20% 98%;
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 220 20% 20%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 215 30% 92%;
+    --accent-foreground: 215 45% 28%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 215 45% 28%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 40 20% 98%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 18% 10%;
+    --foreground: 40 10% 92%;
+    --card: 220 16% 13%;
+    --card-foreground: 40 10% 92%;
+    --primary: 215 40% 55%;
+    --primary-foreground: 220 18% 10%;
+    --secondary: 220 14% 18%;
+    --secondary-foreground: 40 10% 88%;
+    --muted: 220 14% 18%;
+    --muted-foreground: 220 10% 58%;
+    --accent: 220 14% 20%;
+    --accent-foreground: 215 40% 65%;
+    --border: 220 14% 20%;
+    --input: 220 14% 20%;
+    --ring: 215 40% 55%;
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 40 10% 92%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+.prose-document {
+  @apply font-serif text-[15px] leading-relaxed;
+}
+
+.prose-document h1 {
+  @apply text-2xl font-semibold mb-4 text-foreground;
+}
+
+.prose-document h2 {
+  @apply text-xl font-semibold mt-6 mb-3 text-foreground;
+}
+
+.prose-document h3 {
+  @apply text-lg font-medium mt-4 mb-2 text-foreground;
+}
+
+.prose-document p {
+  @apply mb-3 text-foreground/90;
+}
+
+.prose-document table {
+  @apply w-full border-collapse my-4 text-sm font-sans;
+}
+
+.prose-document th,
+.prose-document td {
+  @apply border border-border px-3 py-2 text-left;
+}
+
+.prose-document th {
+  @apply bg-muted font-medium;
+}
+
+.citation-ref {
+  @apply inline-flex items-center justify-center w-4 h-4 text-[10px] font-medium
+         bg-primary/10 text-primary rounded-full cursor-pointer
+         hover:bg-primary/20 transition-colors align-super ml-0.5;
+}
+
+.tool-status {
+  @apply flex items-center gap-2 text-xs text-muted-foreground py-1.5 px-3
+         bg-muted/50 rounded-md border border-border/50;
+}

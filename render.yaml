@@ -1,0 +1,23 @@
+# Render Blueprint — FREE tier (single web service serves API + React UI)
+# Note: Free instances have 512 MB RAM and sleep after ~15 min idle.
+# If the app OOMs on startup, use Hugging Face Spaces instead (see deploy/HUGGINGFACE.md).
+services:
+  - type: web
+    name: ai-research-assistant
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: SERVE_FRONTEND
+        value: "true"
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: JWT_SECRET
+        generateValue: true
+      - key: GROQ_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
